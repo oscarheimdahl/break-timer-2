@@ -1,0 +1,98 @@
+@font-face {
+  font-family: Lato;
+  src: url(../assets/Lato-Regular.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: Lato;
+  user-select: none;
+}
+
+.container {
+  width: calc(100vw - 20px);
+  height: calc(100vh - 20px);
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.container:hover .round-button {
+  display: grid;
+}
+
+.row {
+  height: 100%;
+  width: calc(100% - 2rem);
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  padding-left: 1rem;
+  background-color: transparent;
+  margin: 0;
+}
+
+h1 {
+  color: white;
+  background: #00000033;
+  font-size: 2rem;
+  padding: 0.5rem 0.5rem 0.4rem 0.5rem;
+  border-radius: 8px;
+  margin: 0 0.5rem;
+}
+
+.round-button {
+  height: 2rem;
+  width: 2rem;
+  background: #00000033;
+  border-radius: 50%;
+  /* display: grid; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0.2rem;
+  color: white;
+  line-height: 100%;
+}
+
+.round-button:last-child {
+  margin-right: 0;
+}
+
+.round-button:hover {
+  background: #00000055;
+  cursor: pointer;
+}
+
+.round-button img {
+  width: 50%;
+  height: 50%;
+  left: 25%;
+  position: relative;
+  filter: invert();
+}
+
+#pause {
+  display: none;
+}
+
+#handle {
+  -webkit-app-region: drag;
+  box-sizing: border-box;
+  border: solid 3px #00000033;
+  background: white;
+  top: calc(50vh - 7.5px);
+  left: 10px;
+  border-radius: 50%;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+}
+
+.mouseoutinator {
+  /* background: red; */
+  width: 100vw;
+  height: 100vh;
+}

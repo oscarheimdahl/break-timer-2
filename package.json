@@ -1,6 +1,6 @@
 {
-  "name": "25-Minutes",
-  "productName": "25-Minutes",
+  "name": "25 Minutes",
+  "productName": "25 Minutes",
   "version": "2.0.0",
   "description": "Simple floating break timer",
   "main": "src/electron/index.js",
@@ -20,7 +20,9 @@
   "license": "MIT",
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "icon": "./src/assets/icon.icns"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-dmg",

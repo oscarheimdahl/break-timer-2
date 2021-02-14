@@ -3,10 +3,14 @@
   src: url(../assets/Lato-Regular.ttf);
 }
 
+body {
+  background: #333;
+}
+
 * {
   margin: 0;
   padding: 0;
-  background: transparent;
+  /* background: transparent; */
   font-family: Lato;
   user-select: none;
 }
@@ -17,59 +21,62 @@
   position: absolute;
   left: 10px;
   top: 10px;
+  /* opacity: 0.5; */
+  /* transition: opacity 0.5s; */
 }
 
-.container:hover .round-button {
-  display: grid;
+.container:hover .handle {
+  opacity: 1;
 }
 
 .row {
   height: 100%;
-  width: calc(100% - 2rem);
+  width: calc(100% - 1rem);
   display: flex;
-  /* justify-content: space-evenly; */
   align-items: center;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   background-color: transparent;
-  margin: 0;
 }
 
 h1 {
   color: white;
   background: #00000033;
-  font-size: 2rem;
-  padding: 0.5rem 0.5rem 0.4rem 0.5rem;
+  font-size: 1rem;
+  /* padding: 0.5rem 0.5rem 0.4rem 0.5rem; */
+  height: 20px;
+  padding: 4px;
   border-radius: 8px;
   margin: 0 0.5rem;
 }
 
 .round-button {
-  height: 2rem;
-  width: 2rem;
+  height: 15px;
+  width: 15px;
+  padding: 4px;
   background: #00000033;
-  border-radius: 50%;
-  /* display: grid; */
-  display: none;
+  border-radius: 6px;
+  display: grid;
   justify-content: center;
   align-items: center;
   margin: 0.2rem;
   color: white;
   line-height: 100%;
+  font-size: 70%;
 }
 
-.round-button:last-child {
-  margin-right: 0;
-}
+/* #toggle-timer {
+  height: 2.5rem;
+  width: 2.5rem;
+} */
 
 .round-button:hover {
-  background: #00000055;
-  cursor: pointer;
+  background: #555;
 }
 
 .round-button img {
-  width: 50%;
-  height: 50%;
-  left: 25%;
+  width: 70%;
+  height: 70%;
+  left: 15%;
   position: relative;
   filter: invert();
 }
@@ -78,21 +85,27 @@ h1 {
   display: none;
 }
 
-#handle {
+.handle {
   -webkit-app-region: drag;
   box-sizing: border-box;
-  border: solid 3px #00000033;
+  /* border: solid 3px #00000033; */
   background: white;
-  top: calc(50vh - 7.5px);
-  left: 10px;
+  top: calc(50% - 5px);
+  left: 0px;
   border-radius: 50%;
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.handle-right {
+  right: 0;
+  left: auto;
 }
 
 .mouseoutinator {
-  /* background: red; */
   width: 100vw;
   height: 100vh;
 }

@@ -13,7 +13,9 @@ const buildMenuIcon = (toggleTimer, quit) => {
     { label: 'Quit', click: () => quit() },
   ]);
 
-  menuIcon.on('click', toggleTimer);
+  menuIcon.on('click', () => {
+    if (process.platform === 'win32') toggleTimer();
+  });
 
   menuIcon.setContextMenu(contextMenu);
 };

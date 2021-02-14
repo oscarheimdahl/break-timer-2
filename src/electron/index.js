@@ -10,16 +10,12 @@ if (require('electron-squirrel-startup')) {
 }
 
 function toggleTimer() {
-  if (!timer) timer = buildTimer();
-  else if (timer.isVisible()) timer.hide();
+  // if (!timer) timer = buildTimer();
+  if (timer.isVisible()) timer.hide();
   else timer.show();
 }
-
+app.dock.hide();
 app.on('ready', () => {
   buildMenuIcon(toggleTimer, app.quit);
   timer = buildTimer();
-});
-
-app.on('before-quit', () => {
-  console.log('bye');
 });

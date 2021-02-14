@@ -12,6 +12,7 @@ let ticking = false;
 let alarm = false;
 let ticker;
 let alarmBlinker;
+let sound = true;
 
 const defaultTime = 60 * 25;
 
@@ -58,6 +59,7 @@ function tick() {
 }
 
 function ringAlarm() {
+  playSound();
   secondsToAlarm = 0;
   alarm = true;
   ticking = false;
@@ -66,6 +68,14 @@ function ringAlarm() {
   toggleIcon();
   showAlarm();
 }
+
+function playSound() {
+  if (sound) {
+    document.getElementById('sound').volume = 0.5;
+    document.getElementById('sound').play();
+  }
+}
+
 function showAlarm() {
   shownSecond.style.color = 'crimson';
   shownMinute.style.color = 'crimson';

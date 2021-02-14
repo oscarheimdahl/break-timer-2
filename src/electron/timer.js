@@ -7,15 +7,11 @@ const buildTimer = () => {
   window = new BrowserWindow({
     width: 280,
     height: 70,
-    frame: false,
-    titleBarStyle: 'hidden',
     skipTaskbar: true,
-    // show: false,
-    // focusable: false,
     fullscreenable: false,
     maximizable: false,
+    frame: false,
     transparent: true,
-    // backgroundColor: '#222',
     resizable: false,
     alwaysOnTop: true,
     webPreferences: {
@@ -24,9 +20,9 @@ const buildTimer = () => {
       nodeIntegration: true,
     },
   });
-  window.loadURL(__dirname + '/../render/timer.html');
 
-  //   window.on('');
+  window.loadFile(__dirname + '/../render/timer.html');
+
   return window;
 };
 

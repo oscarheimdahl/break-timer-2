@@ -1,5 +1,5 @@
 {
-  "name": "25 Minutes",
+  "name": "25Minutes",
   "productName": "25 Minutes",
   "version": "2.0.0",
   "description": "Simple floating break timer",
@@ -31,7 +31,10 @@
           }
         },
         {
-          "name": "@electron-forge/maker-squirrel"
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "iconUrl": "https://raw.githubusercontent.com/oscarheimdahl/break-timer-2/master/src/assets/icon.ico"
+          }
         }
       ]
     }

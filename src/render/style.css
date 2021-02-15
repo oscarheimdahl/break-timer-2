@@ -4,13 +4,12 @@
 }
 
 body {
-  background: #333;
+  background: #444;
 }
 
 * {
   margin: 0;
   padding: 0;
-  /* background: transparent; */
   font-family: Lato;
   user-select: none;
 }
@@ -21,12 +20,6 @@ body {
   position: absolute;
   left: 10px;
   top: 10px;
-  /* opacity: 0.5; */
-  /* transition: opacity 0.5s; */
-}
-
-.container:hover .handle {
-  opacity: 1;
 }
 
 .row {
@@ -63,12 +56,6 @@ h1 {
   line-height: 100%;
   font-size: 70%;
 }
-
-/* #toggle-timer {
-  height: 2.5rem;
-  width: 2.5rem;
-} */
-
 .round-button:hover {
   background: #555;
 }
@@ -88,21 +75,18 @@ h1 {
 .handle {
   -webkit-app-region: drag;
   box-sizing: border-box;
-  /* border: solid 3px #00000033; */
-  background: white;
-  top: calc(50% - 5px);
-  left: 0px;
-  border-radius: 50%;
+  top: calc(50% - 10px);
+  left: -5px;
   position: absolute;
-  width: 10px;
-  height: 10px;
-  opacity: 0;
+  width: 20px;
+  height: 20px;
   transition: opacity 0.2s;
 }
 
 .handle-right {
-  right: 0;
+  right: -5px;
   left: auto;
+  user-select: none;
 }
 
 .mouseoutinator {

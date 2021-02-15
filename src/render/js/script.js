@@ -28,7 +28,6 @@ setTime2.onwheel = (e) => onButtonScroll(e, setTime2);
 
 function onButtonClick(button) {
   secondsToAlarm = parseInt(button.innerText) * 60;
-  secondsToAlarm = 1;
   updateShownTime();
 }
 

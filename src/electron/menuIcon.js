@@ -23,7 +23,7 @@ const buildMenuIcon = (toggleTimer, toggleSound, quit) => {
           click: toggleTimerWrapper,
         },
         {
-          label: `Sound ${sound ? 'On' : 'Off'}`,
+          label: sound ? 'Mute' : 'Unmute',
           click: toggleSoundWrapper,
         },
         { type: 'separator' },

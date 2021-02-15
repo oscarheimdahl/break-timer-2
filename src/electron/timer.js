@@ -10,11 +10,18 @@ const buildTimer = () => {
     fullscreenable: false,
     maximizable: false,
     frame: false,
+    backgroundColor: '#333',
+    show: false,
     resizable: false,
     alwaysOnTop: true,
   });
+  window.setVisibleOnAllWorkspaces(true);
 
   window.loadFile(__dirname + '/../render/timer.html');
+
+  window.once('ready-to-show', () => {
+    window.show();
+  });
 
   return window;
 };

@@ -19,8 +19,9 @@ function toggleTimer() {
   else timer.show();
   return !visible;
 }
-if (process.platform === 'darwin') app.dock.hide();
+
 app.on('ready', () => {
   timer = buildTimer();
   buildMenuIcon(toggleTimer, toggleSound, app.quit);
+  if (process.platform === 'darwin') app.dock.hide();
 });

@@ -1,3 +1,5 @@
+const { ipcRenderer } = require('electron');
+
 document.body.addEventListener('click', hideAlarm, true);
 const pauseIcon = document.getElementById('pause');
 const playIcon = document.getElementById('play');
@@ -12,7 +14,7 @@ let ticking = false;
 let alarm = false;
 let ticker;
 let alarmBlinker;
-let sound = true;
+let soundOn = true;
 
 const defaultTime = 60 * 25;
 
@@ -26,7 +28,7 @@ setTime2.onwheel = (e) => onButtonScroll(e, setTime2);
 
 function onButtonClick(button) {
   secondsToAlarm = parseInt(button.innerText) * 60;
-  //   secondsToAlarm = 1;
+  secondsToAlarm = 1;
   updateShownTime();
 }
 
@@ -70,9 +72,10 @@ function ringAlarm() {
 }
 
 function playSound() {
-  if (sound) {
-    document.getElementById('sound').volume = 0.5;
-    document.getElementById('sound').play();
+  if (soundOn) {
+    const sound = document.getElementById('sound');
+    sound.volume = 0.5;
+    sound.play();
   }
 }
 
@@ -117,3 +120,7 @@ function pad0(number) {
   if (number.toString().length > 1) return number;
   return '0' + number;
 }
+
+ipcRenderer.on('toggleSound', function (_, shouldHaveSound) {
+  soundOn = shouldHaveSound;
+});

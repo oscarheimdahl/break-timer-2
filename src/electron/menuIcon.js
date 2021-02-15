@@ -1,23 +1,37 @@
 const { Tray, Menu } = require('electron');
 let menuIcon;
-
-const buildMenuIcon = (toggleTimer, quit) => {
+let sound = true;
+let visible = true;
+const buildMenuIcon = (toggleTimer, toggleSound, quit) => {
   menuIcon = new Tray(__dirname + '/../assets/25.png');
 
-  const contextMenu = Menu.buildFromTemplate([
-    {
-      label: 'Show/Hide',
-      click: () => toggleTimer(),
-    },
-    { type: 'separator' },
-    { label: 'Quit', click: () => quit() },
-  ]);
+  function toggleSoundWrapper() {
+    sound = !sound;
+    toggleSound(sound);
+    setContextMenu();
+  }
+  function toggleTimerWrapper() {
+    visible = toggleTimer();
+    setContextMenu();
+  }
 
-  menuIcon.on('click', () => {
-    if (process.platform === 'win32') toggleTimer();
-  });
+  function setContextMenu() {
+    menuIcon.setContextMenu(
+      Menu.buildFromTemplate([
+        {
+          label: visible ? 'Hide' : 'Show',
+          click: toggleTimerWrapper,
+        },
+        {
+          label: `Sound ${sound ? 'On' : 'Off'}`,
+          click: toggleSoundWrapper,
+        },
+        { type: 'separator' },
+        { label: 'Quit', click: () => quit() },
+      ])
+    );
+  }
 
-  menuIcon.setContextMenu(contextMenu);
+  setContextMenu();
 };
-
 module.exports = buildMenuIcon;

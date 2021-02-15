@@ -14,6 +14,10 @@ const buildTimer = () => {
     show: false,
     resizable: false,
     alwaysOnTop: true,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+    },
   });
   window.setVisibleOnAllWorkspaces(true);
 

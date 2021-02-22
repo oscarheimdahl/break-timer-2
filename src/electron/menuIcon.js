@@ -3,7 +3,7 @@ let menuIcon;
 let sound = true;
 let visible = true;
 const buildMenuIcon = (toggleTimer, toggleSound, quit) => {
-  menuIcon = new Tray(__dirname + '/../assets/25.png');
+  menuIcon = new Tray(__dirname + '/../assets/IconTemplate.png');
 
   function toggleSoundWrapper() {
     sound = !sound;

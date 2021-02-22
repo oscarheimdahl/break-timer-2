@@ -3,7 +3,9 @@ let menuIcon;
 let sound = true;
 let visible = true;
 const buildMenuIcon = (toggleTimer, toggleSound, quit) => {
-  menuIcon = new Tray(__dirname + '/../assets/IconTemplate.png');
+  if (process.platform === 'darwin')
+    menuIcon = new Tray(__dirname + '/../assets/IconTemplate.png');
+  else menuIcon = new Tray(__dirname + '/../assets/25.png');
 
   function toggleSoundWrapper() {
     sound = !sound;

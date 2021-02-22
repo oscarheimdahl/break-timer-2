@@ -31,11 +31,19 @@ function onButtonClick(button) {
   updateShownTime();
 }
 
+let scrollLock = false;
+
 function onButtonScroll(e, button) {
+  // if (scrollLock) return;
+  // scrollLock = true;
+
   const up = e.deltaY < 0;
   const delta = up ? 1 : -1;
   const newValue = parseInt(button.innerText) + delta;
   if (newValue > 0 && newValue < 100) button.innerText = newValue;
+  // setTimeout(() => {
+  //   scrollLock = false;
+  // }, 200);
 }
 
 toggleTimer.addEventListener('click', (e) => {
@@ -123,3 +131,32 @@ function pad0(number) {
 ipcRenderer.on('toggleSound', function (_, shouldHaveSound) {
   soundOn = shouldHaveSound;
 });
+
+//lethargy stuff
+
+// const lethargy = new Lethargy(7, 20, 0.05);
+// const checkScroll = (e) => {
+//   e.preventDefault();
+//   e.stopPropagation();
+//   const result = lethargy.check(e);
+//   if (!result) return;
+//   ipcRenderer.send('print', result);
+// };
+
+// // function onButtonScroll(e, button) {
+// //   // if (scrollLock) return;
+// //   // scrollLock = true;
+
+// //   const up = e.deltaY < 0;
+// //   const delta = up ? 1 : -1;
+// //   const newValue = parseInt(button.innerText) + delta;
+// //   if (newValue > 0 && newValue < 100) button.innerText = newValue;
+// //   // setTimeout(() => {
+// //   //   scrollLock = false;
+// //   // }, 200);
+// // }
+
+// window.addEventListener('mousewheel', checkScroll, false);
+// window.addEventListener('DOMMouseScroll', checkScroll, false);
+// window.addEventListener('wheel', checkScroll, false);
+// window.addEventListener('MozMousePixelScroll', checkScroll, false);

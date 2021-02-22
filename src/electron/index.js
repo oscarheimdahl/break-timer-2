@@ -13,6 +13,10 @@ function toggleSound(bool) {
   timer.webContents.send('toggleSound', bool);
 }
 
+ipcMain.on('print', function (_, data) {
+  console.log(data);
+});
+
 function toggleTimer() {
   const visible = timer.isVisible();
   if (visible) timer.hide();

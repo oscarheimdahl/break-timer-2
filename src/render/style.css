@@ -3,8 +3,16 @@
   src: url(../assets/Lato-Regular.ttf);
 }
 
-body {
-  background: #333;
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #333;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #ddd;
+  }
 }
 
 * {

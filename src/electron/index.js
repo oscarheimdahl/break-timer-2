@@ -1,4 +1,4 @@
-const { app, ipcMain } = require('electron');
+const { app, ipcMain, globalShortcut } = require('electron');
 require('electron-reload')(__dirname + '/../render/');
 const buildMenuIcon = require('./menuIcon.js');
 const buildTimer = require('./timer.js');
@@ -27,5 +27,6 @@ function toggleTimer() {
 app.on('ready', () => {
   timer = buildTimer();
   buildMenuIcon(toggleTimer, toggleSound, app.quit);
+  globalShortcut.register('CommandOrControl+Alt+H', () => toggleTimer());
   if (process.platform === 'darwin') app.dock.hide();
 });

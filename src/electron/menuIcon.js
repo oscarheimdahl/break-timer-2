@@ -21,7 +21,7 @@ const buildMenuIcon = (toggleTimer, toggleSound, quit) => {
     menuIcon.setContextMenu(
       Menu.buildFromTemplate([
         {
-          label: visible ? 'Hide' : 'Show',
+          label: (visible ? 'Hide' : 'Show') + '        ⌘⌥ H',
           click: toggleTimerWrapper,
         },
         {
